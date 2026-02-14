@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/javascript.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Will You Be My Valentine?</title>
+    <meta name="description" content="A special invitation for a special someone." />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app">
+      <div class="floating-hearts" id="hearts-container"></div>
+      
+      <main class="card-container">
+        <div class="card" id="valentine-card">
+          <!-- Step 1: The Question -->
+          <div id="step-question" class="step active">
+            <div class="card-image-wrapper">
+              <div class="heart-icon">❤️</div>
+            </div>
+            <h1 class="title">Will you be my Valentine?</h1>
+            <p class="subtitle">I'd be the luckiest person in the world if you say yes!</p>
+            <div class="button-group">
+              <button id="btn-yes" class="btn btn-yes">Yes, I'd love to!</button>
+              <button id="btn-no" class="btn btn-no">No</button>
+            </div>
+          </div>
+
+          <!-- Step 2: Date Details -->
+          <div id="step-details" class="step">
+            <h1 class="title success-text">Yay! It's a Date! 🥂</h1>
+            <p class="subtitle">Looking forward to spending time with you.</p>
+            
+            <div class="date-info">
+              <div class="info-item">
+                <span class="icon">📅</span>
+                <span class="text">February 14, 2026</span>
+              </div>
+              <div class="info-item">
+                <span class="icon">⏰</span>
+                <span class="text">7:30 PM</span>
+              </div>
+              <div class="info-item">
+                <span class="icon">📍</span>
+                <span class="text">Our Favorite Spot</span>
+              </div>
+            </div>
+
+            <button id="btn-calendar" class="btn btn-outline">Add to Calendar</button>
+            <p class="footer-note">P.S. Wear something you feel beautiful in! (Though that's everything you wear)</p>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

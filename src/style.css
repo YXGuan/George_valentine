@@ -1,0 +1,269 @@
+:root {
+  --primary: hsl(340, 82%, 60%);
+  --primary-hover: hsl(340, 82%, 50%);
+  --secondary: hsl(340, 40%, 95%);
+  --text: hsl(340, 20%, 20%);
+  --text-light: hsl(340, 10%, 40%);
+  --glass: rgba(255, 255, 255, 0.7);
+  --shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--secondary);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Floating Hearts Background */
+.floating-hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.heart {
+  position: absolute;
+  color: var(--primary);
+  opacity: 0.3;
+  animation: float 10s infinite linear;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) scale(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: translateY(-10vh) scale(1.5) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Card Container */
+.card-container {
+  padding: 2rem;
+  width: 100%;
+  max-width: 500px;
+  perspective: 1000px;
+}
+
+.card {
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 2rem;
+  padding: 3rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  animation: cardEntry 1s var(--transition);
+}
+
+@keyframes cardEntry {
+  from {
+    transform: translateY(50px) rotateX(-10deg);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0) rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+.card-image-wrapper {
+  margin-bottom: 2rem;
+}
+
+.heart-icon {
+  font-size: 5rem;
+  animation: heartbeat 1.5s infinite;
+  display: inline-block;
+}
+
+@keyframes heartbeat {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 60px;
+}
+
+.btn {
+  padding: 1rem 2rem;
+  border-radius: 5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  font-family: 'Inter', sans-serif;
+}
+
+.btn-yes {
+  background-color: var(--primary);
+  color: white;
+  box-shadow: 0 10px 20px rgba(255, 75, 110, 0.3);
+}
+
+.btn-yes:hover {
+  transform: translateY(-5px) scale(1.05);
+  background-color: var(--primary-hover);
+  box-shadow: 0 15px 25px rgba(255, 75, 110, 0.4);
+}
+
+.btn-no {
+  background-color: white;
+  color: var(--text-light);
+  border: 1px solid #ddd;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  margin-top: 1rem;
+}
+
+.btn-outline:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+/* Steps Handling */
+.step {
+  display: none;
+}
+
+.step.active {
+  display: block;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Date Details Section */
+.success-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.date-info {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  display: grid;
+  gap: 1rem;
+  text-align: left;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.info-item .icon {
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+}
+
+.info-item .text {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.footer-note {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .card {
+    padding: 2rem 1.5rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
